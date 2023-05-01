@@ -12,43 +12,50 @@ In this section of the lab, you will learn how Instana can help you get to root 
 On the left side, select **"Events"**
 ![](images/incident.png)
 
-This will open up a panel showing all of the Incidents that are affecting the monitored systems and applications. Incidents are the raw Events that have been correlated via
-Analytics into an Incident. 
+This will open up a panel showing all of the Incidents that are affecting the monitored systems and applications. 
+You will also notice that there is an **Events** tab and a **Change** tab.  The **Events** tab is all of the raw events 
+that are effecting the environnmet.  The **Change** tab is a list of changes that have occurred.  
+The **Incidents** are the raw Events that have been correlated via Analytics into an Incident. 
 
 Make sure that the time selection in the upper right corner is set to **"Last hour"**
 
-As seen in the previous picture, select the Incident that is triggering on the **"POST /order"** request.  You will notice that it is an Incident indicating that the Erroneous 
-call rate exceeded 10%. 
+As seen in the previous picture, select the Incident that is triggering on the**QOTD High Erroneous Call Rate** on the 
+**vader-acemq.coc-ibm.com-BK1:EG2** entity.  You will notice that it is an Incident indicating that the Erroneous 
+call rate exceeded 5%. 
 
 You will see the details related to raw **Events** that were correlated via **analytics** into an **Incident**.
 ![](images/singleIncident.png)
 
 
-In this case, only a single Event makes up the Incident, but in many cases, you will see 10 or more **Events** 
-that are related to each other contained within a single Incident.
+In this case, you should see that 4 Events were correlated into a single Incident.  In many cases, you'll see 10 or more.
+This provides you with noise reduction in the environment and additional context as you debug the problem.
 
-Within the Incident, you can see when the Incident opened and in some cases, when it closed. 
+Within the Incident, you can see when each **Event** opened and in some cases, when they closed. 
 
 You will see the **"Triggering Event"** and any **"Related Events"**.  The triggering event is the first event that 
 impacts an application.  Either a service or a website.  The related events are a timeline of the related events with the first event at the top.
 
 On the right side, click on the **"+"** symbol to expand the Triggering Event.
-![](images/singleIncident.png)
+![](images/singleIncident2.png)
 
 
-You can see in the historical graph that the erroneous calls reached 100% for a period of time.
+You can see in the historical graph that the erroneous calls reached high rates for a period of time.
 ![](images/erroneous.png)
 
 ## 3-2: Analyze the Calls
 
 Next, click the **"Analyze Calls"** button to analyze the calls.
 
-You will be taken to an analytics screen where you can see all of the failed calls for **"POST /order"** . 
-You can also see latency for the calls is greater than 2 seconds.
-![](images/selectCall.png)
+You will be taken to an analytics screen where you can see a summary of the failed calls for **gen.supplychain**.
+
+Click on the down arrow to expand to see the list of failed calls.
+![](images/expand.png)
+
+You can see a large number of failed calls.
+![](images/singleFailedCall.png)
 
 
-Select one of the **"POST /order"** calls
+Select one of the failed **gen.supplychain** calls.
 
 
 You will be taken to a screen where you can see the Call Stack and Stack Trace data. You explored this previously, 
@@ -56,16 +63,20 @@ but you did it with a good transaction.  Now you are examining a failed transact
 ![](images/badCall.png)
 
 
-Scroll to the bottom of the page where you see the **"Calls"**
-![](images/error2053.png)
+Scroll to the bottom of the page where you see the **call stack**.  Expand the plus signs to see the full **call stack**
+![](images/expandCall.png)
+
+You should now see the full **call stack**.
+![](images/fullCallStack.png)
 
 
 
 When you see errors, normally you go to the bottom of the call stack.  That's because the error in the last call is likely affecting the upstream calls.  
 
-Click on the last call and examine the information on the right side.  Do this by clicking on the small **green** dot next the the word **MESSAGING**.
+Click on the last call and examine the information on the right side. 
 
-You will see the following error message:  **"IBM MQ call failed with compcode '2' reason '2053"**
+You will see the following error message:  **IBM MQ call failed with compcode '2' ('MQCC_FAILED') reason '2053' ('MQRC_Q_FULL')**
+![](images/errorCode.png)
 
 This error message indicates that the MQ Queue is full and new messages can't be put on the queue.  In the future, Instana will be providing a translated error message for 
 key messages like this so that you don't have to lookup the error codes.

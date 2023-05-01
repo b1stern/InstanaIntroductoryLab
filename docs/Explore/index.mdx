@@ -6,15 +6,15 @@ description: Explore Instana and Quote of the Day Application
 
 ***
 
-In this portion of the lab, you will explore some key Instana capabilities including monitoring of kubernetes, monitoring of applications, and monitoring of infrastructure.
+In this portion of the lab, you will explore some key Instana capabilities including monitoring of kubernetes, monitoring of 
+applications, and monitoring of infrastructure.
 
 ## 1-1: Explore Kubernetes
 
-In this section of the lab, you want to be logged into the thinkdemo virtual machine.  If you are currently logged into the MQ/ACE virtual machine, switch to the other VM.
+Open the browser and log into the Instana user interface.  Chrome, Firefox, Edge, and Internet Explorer are all supported.
 
-Open the browser tab for the Instana user interface.
-
-On the left navigation, select **"Platforms"** and then **"kubernetes"**.  Notice that you have the option of selecting other infrastructure providers such as VMware, Power HMC, and zHMC.
+On the left navigation, select **"Platforms"** and then **"kubernetes"**.  Notice that you have the option of 
+selecting other infrastructure providers such as VMware, Power HMC, and zHMC.
 
 You will see a list of kubernetes clusters. Select the demo-us-cluster to drill in for more details. 
   ![](images/selectCluster.png)
@@ -47,13 +47,13 @@ If you want to search for something like a Host, middleware, or zone, you can us
 to search for the server with hostname vader-acemq.  If the server does not show up, make sure you have an **asterisk (*)** at the end of the hostname.
   ![](images/searchHost.png)
 
-Once you have found the host, flyover the tower that represents the vader-acemq node.  
+Once you have found the host, flyover the tower that represents the vader-acemq node.  You need to flyover one of the **corners** of the tower.
   ![](images/vader-acemq.png) 
 
 You'll notice that a number of components were automatically discovered and are instrumented for monitoring.
 This is the ACE and MQ server. You can see the MQ and ACE components along 2 discovered JVMs, and processes.
 
-Remote the filter at the top of the page by clicking on one of the two X's:
+Remove the filter at the top of the page by clicking on one of the two X's:
   ![](images/clearFilter.png) 
 
 In the bottom right corner there are several icons that allow you to organize the Infrastructure view in different ways.  For example, group the servers by OS architecture.
@@ -72,9 +72,11 @@ In addition, if you select where is says **"Hosts"**, there is a dropdown list t
 Change from **"Hosts"** to **"Docker Containers"** in the dropdown list and you'll see a complete list of containers and their utilization and health.
 
 Switch back to the Map view by clicking on **"Map"** near the upper left corner.
+
   ![](images/map.png)
 
 Zoom in with the plus sign in the bottom right corner.
+
   ![](images/plus.png)
 
 You'll notice that each tower is actually comprised of multiple pizza boxes.   Each one represents an **"Entity"** such as an MQ Queue Manager or an ACE Integration Node.
@@ -129,21 +131,23 @@ If time permits at the end of the lab, you can explore some of the other element
 
 ### 1-3: Explore an Application
 
-After creating the application, your screen should have automatically changed context to show the **studentXXX** Application Perspective that you just defined.
+Use the left side navigation to select **Applications**
+  ![](images/application.png)
 
-Initially, you probably won't see any metrics on the screen.  In the upper right corner, click the **"Live"** button and within a short amount of time you should start
-to see metrics in the widgets.
-  ![](images/yourApplication.png)
+Then, select the **Quote of the Day** application.
+  ![](images/qotd.png)
 
-On this page you can see the transaction volumes, the number of erroneous calls, latency, and the top services that make up the application.
+
+On this page you can see the transaction volumes, the number of erroneous calls, latency, and the top services that make up the application.  These are the **golden signals**.
 
 You'll notice a number of tabs across the top of the screen.  Explore these tabs.  In particular, let's take a look at the **"Depedencies"** tab.
+  ![](images/selectDependencies.png)
 
 On the dependencies tab, you'll see a full topology of the application services.  This topology is discovered automatically.  You can see transactions flowing between
-the different nodes in the topology.   Most of these services are node.js based cloud-native services. The **"acemq.tivlab.raleigh.ibm.com-BK1:EG2"** is the ACE 
-integration node named BK1 and Integration Server named EG2.   The QM1 node in the topology is the MQ Queue Manager named **"QM1"**.
+the different nodes in the topology.   Most of these services are node.js based cloud-native services. The **"vader-acemq.coc-ibm.com-BK1:EG2"** is the ACE 
+integration node named BK1 and Integration Server named EG2.   The QM1 node in the topology is the MQ Queue Manager named **"QM1@vader-acemq.coc-ibm.com"**.
 
-Click on the **"QM1"** node.  Notice that there are 3 options that would allow you to navigate to the MQ dashboard, the transaction Flow within MQ, or analyze the transaction
+Click on the **"QM1@vader-acemq.coc-ibm.com"** node.  Notice that there are 3 options that would allow you to navigate to the MQ dashboard, the transaction Flow within MQ, or analyze the transaction
 calls through MQ.
 
 Click on **"Upstream/Downsteam"** near the top of the page.  This will allow you to see a list of Upstream and Downstream services for the application.
@@ -169,7 +173,7 @@ Scroll down on the page until you see the **"qotd-engraving"** service.
 
 Click on the **qotd-engraving** link on the left Column.  The qotd-engraving service is the service that calls an ACE flow and then puts a message on the MQ queue. 
 We want to explore this service in more detail.
-  ![](images/qotdEngraving.png)
+  ![](images/engraving.png)
 
 
 

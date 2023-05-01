@@ -6,8 +6,6 @@ description:  Use Instana to diagnose a problem within a business application
 
 In this section of the lab, you will learn how Instana can help you get to root cause of a problem in a quick and intuitive manner.
 
-You can choose either one of the two virtual machines.  Open the chrome browser to the Instana tab to run these exercises.   If you are not already logged in, login using the credentials
-specified on the **"accounts"** tab in the browser.
 
 ## 3-1: Evaluate the Events via an Incident
 
@@ -26,11 +24,13 @@ You will see the details related to raw **Events** that were correlated via **an
 ![](images/singleIncident.png)
 
 
-In this case, only a single Event makes up the Incident, but in many cases, you will see 10 or more **Events** that are related to each other contained within a single Incident.
+In this case, only a single Event makes up the Incident, but in many cases, you will see 10 or more **Events** 
+that are related to each other contained within a single Incident.
 
 Within the Incident, you can see when the Incident opened and in some cases, when it closed. 
 
-You will see the **"Triggering Event"** and any **"Related Events"**.
+You will see the **"Triggering Event"** and any **"Related Events"**.  The triggering event is the first event that 
+impacts an application.  Either a service or a website.  The related events are a timeline of the related events with the first event at the top.
 
 On the right side, click on the **"+"** symbol to expand the Triggering Event.
 ![](images/singleIncident.png)
@@ -43,15 +43,16 @@ You can see in the historical graph that the erroneous calls reached 100% for a 
 
 Next, click the **"Analyze Calls"** button to analyze the calls.
 
-You will be taken to an analytics screen where you can see all of the failed calls for **"POST /order"** . You can also see latency for the calls is greater than 2 seconds.
+You will be taken to an analytics screen where you can see all of the failed calls for **"POST /order"** . 
+You can also see latency for the calls is greater than 2 seconds.
 ![](images/selectCall.png)
 
 
 Select one of the **"POST /order"** calls
 
 
-You will be taken to a screen where you can see the Call Stack and Stack Trace data. You explored this previously, but you did it with a good transaction.  Now you are 
-examining a failed transaction.
+You will be taken to a screen where you can see the Call Stack and Stack Trace data. You explored this previously, 
+but you did it with a good transaction.  Now you are examining a failed transaction.
 ![](images/badCall.png)
 
 
@@ -100,39 +101,7 @@ Clearly there is a problem with this queue.  The queue is full and transactions 
 That completes this section of the lab.
 
 ## 3-4: Summary
-In this portion of the lab, you learned out to diagnose a problem in Instana.  Ultimately, determining that the queue was full and preventing transactions from completing.
+In this portion of the lab, you learned out to diagnose a problem in Instana.  Ultimately, determining that the queue was 
+full and preventing transactions from completing.
 
-
-To continue other portions of the lab, select one of the lab exercises in the upper left corner or select one of the images below.
-
-
-<Row>
-
-<Column colLg={4} colMd={4} noGutterMdLeft>
-<ArticleCard
-    color="dark"
-    subTitle="Explorer Instana"
-    title="Explore the Instana UI and Capabilities"
-    href="/tutorials/Explore"
-    actionIcon="arrowRight"
-    >
-
-![](images/InstanaTopology.png)
-
-</ArticleCard>
-</Column>
-
-<Column colLg={4} colMd={4} noGutterMdLeft>
-<ArticleCard
-    color="dark"
-    subTitle="Administer Instana"
-    title="Learn How to Perform Administrative Tasks in Instana"
-    href="/tutorials/Administration"
-    actionIcon="arrowRight"
-    >
-
-![](images/infrastructure.png)
-
-</ArticleCard>
-</Column>
-</Row>
+***

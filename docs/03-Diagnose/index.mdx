@@ -7,9 +7,14 @@ description:  Use Instana to diagnose a problem within a business application
 In this section of the lab, you will learn how Instana can help you get to root cause of a problem in a quick and intuitive manner.
 
 
-## 3-1: Evaluate the Events via an Incident
+## 2-1: Evaluate the Events via an Incident
 
 On the left side, select **"Events"**
+
+![](images/events.png)
+
+You will see a list of Incidents that are affecting the environment.  It will be all Incidents that occurred within the time window you have selected in the upper right corner.  For example, 1 hour.
+
 ![](images/incident.png)
 
 This will open up a panel showing all of the Incidents that are affecting the monitored systems and applications. 
@@ -42,7 +47,7 @@ On the right side, click on the **"+"** symbol to expand the Triggering Event.
 You can see in the historical graph that the erroneous calls reached high rates for a period of time.
 ![](images/erroneous.png)
 
-## 3-2: Analyze the Calls
+## 2-2: Analyze the Calls
 
 Next, click the **"Analyze Calls"** button to analyze the calls.
 
@@ -63,7 +68,9 @@ but you did it with a good transaction.  Now you are examining a failed transact
 ![](images/badCall.png)
 
 
-Scroll to the bottom of the page where you see the **call stack**.  Expand the plus signs to see the full **call stack**
+Scroll to the bottom of the page where you see the **call stack**.  
+
+Expand the plus signs to see the full **call stack**
 ![](images/expandCall.png)
 
 You should now see the full **call stack**.
@@ -83,7 +90,7 @@ key messages like this so that you don't have to lookup the error codes.
 
 At this point, we believe we have a diagnosis for our problem.  The MQ Queue is full and the transactions are failing because they can't post a message to the queue.
 
-## 3-3: Confirm Your Diagnosis
+## 2-3: Confirm Your Diagnosis
 
 In many cases, you can confirm the root cause of the problem by analyzing the **call stack** and **stack trace**, but sometimes you need to investigate further.  
 
@@ -111,7 +118,7 @@ Clearly there is a problem with this queue.  The queue is full and transactions 
 
 That completes this section of the lab.
 
-## 3-4: Summary
+## 2-4: Summary
 In this portion of the lab, you learned out to diagnose a problem in Instana.  Ultimately, determining that the queue was 
 full and preventing transactions from completing.
 

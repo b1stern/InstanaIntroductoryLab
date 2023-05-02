@@ -57,10 +57,10 @@ const config = {
       // Replace with your project's social card
       image: 'img/docusaurus-social-card.jpg',
       navbar: {
-        title: 'My Site',
+        title: 'Instana',
         logo: {
-          alt: 'My Site Logo',
-          src: 'img/logo.svg',
+          alt: 'Instana Logo',
+          src: 'img/instana-logo.png',
         },
         items: [
           {
@@ -84,24 +84,16 @@ const config = {
             ],
           },
           {
-            title: 'Community',
+            title: 'Documentation',
             items: [
               {
-                label: 'Stack Overflow',
-                href: 'https://stackoverflow.com/questions/tagged/docusaurus',
-              },
-              {
-                label: 'Discord',
-                href: 'https://discordapp.com/invite/docusaurus',
-              },
-              {
-                label: 'Twitter',
-                href: 'https://twitter.com/docusaurus',
-              },
+                label: 'Instana',
+                href: 'https://www.ibm.com/docs/en/instana-observability/current',
+              }
             ],
           },
         ],
-        copyright: `Copyright © ${new Date().getFullYear()} My Project, Inc. Built with Docusaurus.`,
+        copyright: `Copyright © ${new Date().getFullYear()} by IBM`,
       },
       prism: {
         theme: lightCodeTheme,

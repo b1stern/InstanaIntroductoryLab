@@ -7,22 +7,22 @@ description: Explore Instana and Quote of the Day Application
 ***
 
 
-In this portion of the lab, you will explore some key Instana capabilities including monitoring of kubernetes, monitoring of applications, and monitoring of infrastructure.
+In this portion of the lab, you will explore some key Instana capabilities including monitoring of Kubernetes, monitoring of applications, and monitoring of infrastructure.
 
 ## 1-1: Explore Kubernetes
 
-Open the browser and log into the Instana user interface.  Chrome, Firefox, Edge, and Internet Explorer are all supported.
+Open the browser and log into the Instana user interface. Chrome, Firefox, Edge, and Internet Explorer are all supported.
 
-On the left navigation, select **"Platforms"** and then **"kubernetes"**.  Notice that you 
-have the option of selecting other infrastructure providers such as VMware, Power HMC, and zHMC
+On the left navigation, select **"Platforms"** and then **"kubernetes"**. Notice that you have the option of selecting other infrastructure providers such as VMware, Power HMC, and zHMC
 
   ![](images/selectKubernetes.png)
 
-You will see a list of kubernetes clusters. Select the **demo-us-cluster** to drill in for more details. 
+You will see a list of kubernetes clusters. Select the **demo-us-cluster** to drill in for more details.
+
   ![](images/selectCluster.png)
 
 
-Select some of the other tabs to explore the kubernetes monitoring.  We recommend you look at the Events, Nodes, and Pods tabs.  
+Select some of the other tabs to explore the kubernetes monitoring. We recommend you look at the Events, Nodes, and Pods tabs.
 
 When you select the pods tab, you will see a list of all pods running within the cluster.  Notice that you can see pod log
 entries collected in context with kubernetes metrics.  If you click on the analyze icon, you can drill into the pod log messages.
@@ -36,17 +36,19 @@ Click on one of the links on the left side and drill into the pod utilization de
 ## 1-2: Explore the Infrastructure View
 
 Next, explore the Infrastructure view.  To do this, click on the **"Infrastructure"** icon on the left side.
+
   ![](images/middlewareZone.png)
 
 Look for the zone labeled **IBM Middleware**.  This zone contains two servers.  One is a DataPower appliance and the other is a Linux server that is running IBM ACE and IBM MQ.
 
 
-If you want to search for something like a Host, middleware, or zone, you can use the lucene query language in the search bar.
+If you want to search for something like a host, middleware, or zone, you can use the Lucene query language in the search bar.
 - Click in the filter bar and select **"Entity"**
 - A list will popup. Find and select **"Host"**
 - Once you have select "Host", another list will popup. Select "name"
 - Now, you will see **"entity.host.name:"**.  After the ":", you can do a wildcard search.  For example **"entity.host.name:vader-acemq*"**.  This will allow you
 to search for the server with hostname vader-acemq.  If the server does not show up, make sure you have an **asterisk (*)** at the end of the hostname.
+
   ![](images/searchHost.png)
 
 Once you have found the host, flyover the tower that represents the vader-acemq node.  
@@ -58,6 +60,7 @@ You'll notice that a number of components were automatically discovered and are 
 This is the ACE and MQ server. You can see the MQ and ACE components along 2 discovered JVMs, and processes.
 
 Remove the filter at the top of the page by clicking on one of the two X's:
+
   ![](images/clearFilter.png) 
 
 In the bottom right corner there are several icons that allow you to organize the Infrastructure view in different ways.  For example, group the servers by OS architecture.
@@ -67,11 +70,13 @@ In the bottom right corner there are several icons that allow you to organize th
 We recommend you explore those at the end of the lab if time permits.
 
 Next, click on the **"Comparison Table"** near the top of the page.
+
   ![](images/comparisonTab.png)
 
 This table shows a sortable and searchable list of the Hosts that make up this environment.  You can quickly find hosts consuming high CPU, high memory, or have poor health.
 
 In addition, if you select where is says **"Hosts"**, there is a dropdown list that allows you to see lists of JVMs, containers, etc.
+
   ![](images/tableContent.png)
 
 Change from **"Hosts"** to **"Docker Containers"** in the dropdown list and you'll see a complete list of containers and their utilization and health.
@@ -85,26 +90,31 @@ Zoom in with the plus sign in the bottom right corner.
   ![](images/plus.png)
 
 You'll notice that each tower is actually comprised of multiple pizza boxes.   Each one represents an **"Entity"** such as an MQ Queue Manager or an ACE Integration Node.
+
   ![](images/pizzaBox.png)
 
 Flyover the ACE/MQ server again until you see a list of all discovered Entities.  If you only see 1 entity, move your mouse to one of the corners of the tower.
-Once you see all of the entities, click your mouse.  You'll see a dialog open 
+Once you see all of the entities, click your mouse.  You'll see a dialog open
+
   ![](images/towerWithEntities.png)
 
 Use the scroll bar to scroll down. You'll notice that you see each of the types of Entities that were discovered.  Expand the MQ entity type and you'll see the Queue
 Manager that was discovered.
+
   ![](images/dashboardScroll.png)
 
 It is possible to click on either the **Open Dashboard** button or the links for the individual entities such as IBM MQ Queue Manager or JVMs.  If you clicked, it would navigate to either the Host 
 operating system metrics or the specific middleware entity.
 
 Click on the **Open Dashboard** button and we'll examine the Host Agent dashboard.  After you click on the button you'll see a screen that looks like this:
+
   ![](images/host.png)
 
 You can see fine grained metric data for the Host operating system. Scroll down and explore the other metrics.
 
-In the upper right corner, select the **time selecter** widget and change the time interval to **Last minute**.  
+In the upper right corner, select the **time selector** widget and change the time interval to **Last minute**.
 You'll be able to see granular metrics at 1 second granularity in the UI. This  is one of the key strengths of Instana.
+
   ![](images/lastMinute.png)
 
 In the upper right corner, click on the **Live** button to switch to a live view.  You will see data streaming into the system in near-realtime.
@@ -116,13 +126,14 @@ Switch back to a 1 hour view using the same button in the upper right corner.
 
 As you scroll down the page, you'll notice a section on the left side of the screen that contains a list of Entity types that were discovered. This is the same list that you 
 saw earlier on the Infrastructure view.
+
   ![](images/drillMQ.png)
 
 Expand the IBM MQ Queue Manager section and select the link for the **QM1@acemq.tivlab.raleigh.ibm.com** queue manager
 
 You will navigate to the dashboard for the MQ Queue Manager. Scroll down the page and examine the metrics.  There are many tables that contain links that would allow you to
 drill into the listener, topics, queues, channels, and more.  Let's focus on the Channels.  Scroll down to the table labeled **"Channels"**.  You will notice two channels with the
-same name. One represents loopback and the other represents the server IP Address.   Select the link next to the one with connection name 10.0.0.3.
+same name. One represents loopback and the other represents the server IP Address. Select the link next to the one with connection name 10.0.0.3.
   ![](images/drillChannel.png)
 
 Examine the Channel metrics on the page.
@@ -148,7 +159,7 @@ Then, select the **Quote of the Day** application.
 
 On this page you can see the transaction volumes, the number of erroneous calls, latency, and the top services that make up the application.  These are the **golden signals**.
 
-You'll notice a number of tabs across the top of the screen.  Explore these tabs.  In particular, let's take a look at the **"Depedencies"** tab.
+You'll notice a number of tabs across the top of the screen.  Explore these tabs.  In particular, let's take a look at the **"Dependencies"** tab.
   ![](images/selectDependencies.png)
 
 On the dependencies tab, you'll see a full topology of the application services.  This topology is discovered automatically.  You can see transactions flowing between
@@ -279,7 +290,7 @@ the calls to just the **Database** calls.
 Next, click on the **Add group** button near the top of the page.
   ![](images/group.png) 
 
-A drop down list will open with a list of the types of calls.  In the seach bar, type **"statement"** 
+A drop down list will open with a list of the types of calls.  In the search bar, type **"statement"**
 and then select **Database -> Statement**.
 
   ![](images/statement.png) 
@@ -307,7 +318,7 @@ And, you can select an individual call and Analyze the transaction in the contex
 
 In this section, we will explore Instana's unique approach to log monitoring
 
-On the left navigation, select **"Platforms"** and then **"kubernetes"**.  
+On the left navigation, select **"Platforms"** and then **"Kubernetes"**.
 
   ![](images/selectKubernetes.png)
 
@@ -347,10 +358,10 @@ Here, you can see that Instana treats log data a little differently.  Instana co
 
 ## 1-6: Summary
 
-In this exercise you have explored some of the key capabilities within Instana.  You explored kubernetes monitoring. 
-You explored monitoring within the context of kubernetes.  You explored the Infrastructure view.  You defined an 
+In this exercise you have explored some of the key capabilities within Instana.  You explored Kubernetes monitoring.
+You explored monitoring within the context of Kubernetes.  You explored the Infrastructure view.  You defined an
 Application Perspective. And you explored the application monitoring details.  You tried out Instana's unbounded analytics.
-Finally, you explored Instana's kubernetes log monitoring capabilities.
+Finally, you explored Instana's Kubernetes log monitoring capabilities.
 
 
 To continue to the next section of the lab, select select the **Diagnosing Problems** section in the left size navigation.

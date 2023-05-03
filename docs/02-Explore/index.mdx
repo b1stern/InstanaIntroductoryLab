@@ -22,10 +22,10 @@ You will see a list of kubernetes clusters. Select the **demo-us-cluster** to dr
   ![](images/selectCluster.png)
 
 
-Select some of the other tabs to explore the kubernetes monitoring. We recommend you look at the Events, Nodes, and Pods tabs.
+Select some of the other tabs to explore the kubernetes monitoring. We recommend you look at the **Events**, **Nodes**, and **Pods** tabs.
 
-When you select the pods tab, you will see a list of all pods running within the cluster.  Notice that you can see pod log
-entries collected in context with kubernetes metrics.  If you click on the analyze icon, you can drill into the pod log messages.
+When you select the **pods** tab, you will see a list of all pods running within the cluster.  Notice that you can see pod log
+entries collected in context with kubernetes metrics.  If you click on the **analyze** icon, you can drill into the pod log messages.
 
 Click on one of the links on the left side and drill into the pod utilization details.
 
@@ -36,16 +36,14 @@ Click on one of the links on the left side and drill into the pod utilization de
 ## 1-2: Explore the Infrastructure View
 
 Next, explore the Infrastructure view.  To do this, click on the **"Infrastructure"** icon on the left side.
-<<<<<<< HEAD
+
   ![](images/infrastructureMenu.png)
 
 You will see if fiew showing all of the servers that make up the environment.  Each of the towers represents a server or some device/appliance that is being monitored remotely.
-=======
 
->>>>>>> f8420cbb0ad7417e73cf807991073aadd58f7c3a
   ![](images/middlewareZone.png)
 
-Look for the zone labeled **IBM Middleware**.  This zone contains two servers.  One is a DataPower appliance and the other is a Linux server that is running IBM ACE and IBM MQ.
+Look for the zone labeled **IBM Middleware**.  This zone contains two servers.  One is a DataPower appliance and the other is a Linux server that is running **IBM ACE** and **IBM MQ**.
 
 
 If you want to search for something like a host, middleware, or zone, you can use the Lucene query language in the search bar.
@@ -63,7 +61,7 @@ You need to flyover one of the **corners** of the tower.
   ![](images/vader-acemq.png) 
 
 You'll notice that a number of components were automatically discovered and are instrumented for monitoring.
-This is the ACE and MQ server. You can see the MQ and ACE components along 2 discovered JVMs, and processes.
+This is the ACE and MQ server. You can see the MQ and ACE components along with 2 discovered JVMs, and processes.
 
 Remove the filter at the top of the page by clicking on one of the two X's:
 
@@ -135,11 +133,10 @@ saw earlier on the Infrastructure view.
 
   ![](images/drillMQ.png)
 
-Expand the IBM MQ Queue Manager section and select the link for the **QM1@acemq.tivlab.raleigh.ibm.com** queue manager
+Expand the IBM MQ Queue Manager section and select the link for the **"QM1@acemq.tivlab.raleigh.ibm.com"** queue manager
 
 You will navigate to the dashboard for the MQ Queue Manager. Scroll down the page and examine the metrics.  There are many tables that contain links that would allow you to
-drill into the listener, topics, queues, channels, and more.  Let's focus on the Channels.  Scroll down to the table labeled **"Channels"**.  You will notice two channels with the
-same name. One represents loopback and the other represents the server IP Address. Select the link next to the one with connection name 10.0.0.3.
+drill into the listener, topics, queues, channels, and more.  Let's focus on the Channels.  Scroll down to the table labeled **"Channels"**.  Select the link next to the one with connection name 10.0.0.3.
   ![](images/drillChannel.png)
 
 Examine the Channel metrics on the page.
@@ -183,7 +180,7 @@ Click on **"Stack"** where you can view the Application, Kubernetes, and Infrast
   ![](images/stack.png)
 
 
-All of this contextual and relationship data helps you analyze and debug you applications to get to root cause as quickly as possible.  In addition, our built 
+All of this contextual and relationship data helps you analyze and debug you applications to get to root cause as quickly as possible.  In addition, our 
 analytics uses this data to automatically group multiple related **"Events"** into a single **"Incident"** for diagnosis.
 
 Close the **Stack** dialog by either clicking on the **Stack** button or somewhere else on the background of the Instana GUI.
@@ -236,7 +233,9 @@ Explore the different types of calls going through this transaction by selecting
 You should notice that different request types are color coded differently.  Blue represents the HTTP requests going through an App Server or java process. Orange represents
 a database call.  And green represents a messaging call (ACE and MQ).  
 
-When you select the Node.js App Server requests, you'll see the **StackTrace** on the right hand side. Within the **StackTrace**, click one of the URLs.
+When you select the Node.js App Server requests, you'll see the **StackTrace** on the right 
+hand side. Within the **StackTrace**, click one of the URLs.
+
   ![](images/stackTrace.png)
 
 
@@ -275,11 +274,7 @@ On the left side, select **Analytics**
 
   ![](images/analytics.png)
 
-At the top of the screen, you'll see that there is a dropdown called **Applications -> Calls**.  
-If you select the dropdown, you'll notice that there are several options available to analyze Application 
-**Calls**, **Traces**, **Websites**, **Mobile Apps**, **Infrastructure** metrics, and **Profiles**.  
-For this lab, we'll focus on the default selection of **Application Calls**.  In your spare time, 
-feel free to Analyze other types of data.
+At the top of the screen, you'll see that there is a dropdown called **Applications -> Calls**.  If you select the dropdown, you'll notice that there are several options available to analyze Application **Calls**, **Traces**, **Websites**, **Mobile Apps**, **Infrastructure** metrics, and **Profiles**.  For this lab, we'll focus on the default selection of **Application Calls**.  In your spare time, feel free to Analyze other types of data.
 
   ![](images/calls.png)
 
@@ -294,6 +289,7 @@ the calls to just the **Database** calls.
   ![](images/database.png) 
 
 Next, click on the **Add group** button near the top of the page.
+
   ![](images/group.png) 
 
 A drop down list will open with a list of the types of calls.  In the search bar, type **"statement"**

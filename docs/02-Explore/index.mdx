@@ -39,7 +39,7 @@ Next, explore the Infrastructure view.  To do this, click on the **"Infrastructu
 
   ![](images/infrastructureMenu.png)
 
-You will see if fiew showing all of the servers that make up the environment.  Each of the towers represents a server or some device/appliance that is being monitored remotely.
+You will see a view showing all of the servers that make up the environment.  Each of the towers represents a server or some device/appliance that is being monitored remotely.
 
   ![](images/middlewareZone.png)
 
@@ -100,7 +100,7 @@ You'll notice that each tower is actually comprised of multiple pizza boxes.   E
 Flyover the ACE/MQ server again until you see a list of all discovered Entities.  If you only see 1 entity, move your mouse to one of the corners of the tower.
 Once you see all of the entities, click your mouse.  You'll see a dialog open
 
-  ![](images/towerWithEntities.png)
+  ![](images/towerWithEntities2.png)
 
 Use the scroll bar to scroll down. You'll notice that you see each of the types of Entities that were discovered.  Expand the MQ entity type and you'll see the Queue
 Manager that was discovered.
@@ -136,7 +136,7 @@ saw earlier on the Infrastructure view.
 Expand the IBM MQ Queue Manager section and select the link for the **"QM1@vader-acemq.coc-ibm.com** queue manager
 
 You will navigate to the dashboard for the MQ Queue Manager. Scroll down the page and examine the metrics.  There are many tables that contain links that would allow you to
-drill into the listener, topics, queues, channels, and more.  Let's focus on the Channels.  Scroll down to the table labeled **"Channels"**.  Select the link next to the one with connection name 10.0.0.3.
+drill into the listener, topics, queues, channels, and more.  Let's focus on the Channels.  Scroll down to the table labeled **"Channels"**.  Select the link next to the one with connection name 127.0.0.1.
   ![](images/drillChannel.png)
 
 Examine the Channel metrics on the page.
@@ -180,7 +180,7 @@ Click on **"Stack"** where you can view the Application, Kubernetes, and Infrast
   ![](images/stack.png)
 
 
-All of this contextual and relationship data helps you analyze and debug you applications to get to root cause as quickly as possible.  In addition, our 
+All of this contextual and relationship data helps you analyze and debug your applications to get to root cause as quickly as possible.  In addition, our 
 analytics uses this data to automatically group multiple related **"Events"** into a single **"Incident"** for diagnosis.
 
 Close the **Stack** dialog by either clicking on the **Stack** button or somewhere else on the background of the Instana GUI.
